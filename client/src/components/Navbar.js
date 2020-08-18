@@ -12,7 +12,7 @@ const Navbar = (props) => {
     <header>
       <div className='overlay'></div>
       <nav>
-        <h2>Beauty Shop</h2>
+        <h2><Link to="/">Beauty Shop</Link></h2>
         <ul>
           <li>
             <Link to='/'>Home</Link>
