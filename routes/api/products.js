@@ -1,14 +1,29 @@
 const express= require('express');
 const router = express.Router();
 
-const Product = require('../../models/Product')
+const Product = require('../../models/Product');
 
-// @route GET api/products/test
+// @route POST api/products/test
 // @desc   Tests products route
 // @access   Public
-router.get('/api/products', async(req,res)=> {
-   const products = await Product.find({});
-   res.json({products});
+router.post('/', async (req,res)=> {
+   const {name, price, avatar} = req.body;
+
+   try {
+      const products = new Product({
+         name,
+         price, 
+         avatar
+      });
+
+      const product = await products.save();
+
+      res.json(product);
+   } catch (error) {
+      console.log(error.message);
+      res.send('Server Error');
+   }
+   
 });
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import { ADD_PRODUCTS_BASKET, GET_NUMBERS_BASKET, INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_PRODUCT } from "../actions/types";
+import { ADD_PRODUCTS_BASKET, GET_NUMBERS_BASKET, INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_PRODUCT} from "../actions/types";
 
 const initialState = {
     basketNumbers : 0,
@@ -38,7 +38,7 @@ switch(action.type) {
          productSelected = {...state.products[action.payload]}
         productSelected.numbers += 1;
         productSelected.inCart = true
-        // console.log(productSelected)  
+  
         return {
           basketNumbers: state.basketNumbers + 1,
           cartCost : state.cartCost + state.products[action.payload].price,
@@ -84,7 +84,7 @@ switch(action.type) {
                 ...state.products,
                 [action.payload]: productSelected
             }
-        }    
+        }  
      case CLEAR_PRODUCT :
             productSelected = {...state.products[action.payload]};
             let numberBackup = productSelected.numbers;
